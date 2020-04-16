@@ -2,7 +2,7 @@
 
 ## /3-closed-variables
 
-> no status: 2020-4-16 23:21:43 
+> no status: 2020-4-16 23:40:36 
 
 [../REVIEW.md](../REVIEW.md)
 
@@ -108,6 +108,7 @@ closure1("second call to closure1");
 ```js
 const usesParentVariable = (param) => {
   // write me!
+  return param + parentScopeVariable + 'local';
 };
 
 let parentScopeVariable = "parentScope";
@@ -119,13 +120,13 @@ const result2 = usesParentVariable(undefined);
 console.assert(result2 === "undefinedparentScopelocal", "assert 2");
 
 parentScopeVariable = usesParentVariable("spoon");
-console.assert(parentScopeVariable === _, "assert 3");
+console.assert(parentScopeVariable === 'spoonparentScopelocal', "assert 3");
 
-const result3 = usesParentVariable(_);
+const result3 = usesParentVariable('');
 console.assert(result3 === "spoonparentScopelocallocal", "assert 4");
 
 parentScopeVariable = usesParentVariable("spoon");
-console.assert(parentScopeVariable === _, "assert 5");
+console.assert(parentScopeVariable === 'spoonspoonparentScopelocallocal', "assert 5");
 
 ```
 
@@ -141,6 +142,9 @@ console.assert(parentScopeVariable === _, "assert 5");
 ```js
 const closesParentParamter = (parentParam) => {
   // write me!
+  return (str) => {
+    return str.split('').join(parentParam).trim();
+  }
 };
 
 const closure1 = closesParentParamter("|");
@@ -153,18 +157,18 @@ const result2 = closure2("+(=)+");
 console.assert(result2 === "+~(~=~)~+", "assert 2");
 
 const result3 = closure1("abc");
-console.assert(result3 === _, "assert 3");
+console.assert(result3 === 'a|b|c', "assert 3");
 
 const result4 = closure2("xyz");
-console.assert(result4 === _, "assert 4");
+console.assert(result4 === 'x~y~z', "assert 4");
 
 
-const closure3 = closesParentParamter(_);
-const result5 = closure3(_);
+const closure3 = closesParentParamter('');
+const result5 = closure3('--0--1--');
 console.assert(result5 === "--0--1--", "assert 5");
 
-const closure4 = closesParentParamter(_);
-const result6 = closure4(_);
+const closure4 = closesParentParamter('');
+const result6 = closure4('--1--0--');
 console.assert(result6 === "--1--0--", "assert 6");
 
 ```
