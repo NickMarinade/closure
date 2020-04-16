@@ -2,15 +2,15 @@
 
 ## /3-closed-variables
 
-> uncaught error: 4/12/2020, 3:59:30 PM 
+> no status: 2020-4-16 23:21:43 
 
 [../REVIEW.md](../REVIEW.md)
 
 * [/example-1-a-free-variable.js](#example-1-a-free-variablejs) - example - no status
 * [/example-2-not-from-closure.js](#example-2-not-from-closurejs) - example - no status
 * [/example-3-from-closure.js](#example-3-from-closurejs) - example - no status
-* [/exercise-1.js](#exercise-1js) - uncaught error
-* [/exercise-2.js](#exercise-2js) - uncaught error
+* [/exercise-1.js](#exercise-1js) - no status
+* [/exercise-2.js](#exercise-2js) - no status
 
 ---
 
@@ -102,24 +102,8 @@ closure1("second call to closure1");
 
 ## /exercise-1.js
 
-* uncaught error
+* no status
 * [review source](./exercise-1.js)
-
-```txt
-- FAIL : assert 1
-- FAIL : assert 2
-ReferenceError: _ is not defined
-    at Object.<anonymous> ( [ ... ] /exercises/3-closed-variables/exercise-1.js:14:40)
-    at Module._compile (internal/modules/cjs/loader.js:777:30)
-    at Object.Module._extensions..js (internal/modules/cjs/loader.js:788:10)
-    at Module.load (internal/modules/cjs/loader.js:643:32)
-    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
-    at Module.require (internal/modules/cjs/loader.js:683:19)
-    at require (internal/modules/cjs/helpers.js:16:16)
-    at evaluate ( [ ... ] /review.js:229:7)
-    at Object.<anonymous> ( [ ... ] /review.js:244:1)
-    at Module._compile (internal/modules/cjs/loader.js:777:30)
-```
 
 ```js
 const usesParentVariable = (param) => {
@@ -151,22 +135,8 @@ console.assert(parentScopeVariable === _, "assert 5");
 
 ## /exercise-2.js
 
-* uncaught error
+* no status
 * [review source](./exercise-2.js)
-
-```txt
-TypeError: closure1 is not a function
-    at Object.<anonymous> ( [ ... ] /exercises/3-closed-variables/exercise-2.js:8:17)
-    at Module._compile (internal/modules/cjs/loader.js:777:30)
-    at Object.Module._extensions..js (internal/modules/cjs/loader.js:788:10)
-    at Module.load (internal/modules/cjs/loader.js:643:32)
-    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
-    at Module.require (internal/modules/cjs/loader.js:683:19)
-    at require (internal/modules/cjs/helpers.js:16:16)
-    at evaluate ( [ ... ] /review.js:229:7)
-    at Object.<anonymous> ( [ ... ] /review.js:244:1)
-    at Module._compile (internal/modules/cjs/loader.js:777:30)
-```
 
 ```js
 const closesParentParamter = (parentParam) => {
