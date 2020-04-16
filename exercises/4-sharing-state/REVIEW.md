@@ -2,7 +2,7 @@
 
 ## /4-sharing-state
 
-> no status: 2020-4-16 23:40:36 
+> no status: 2020-4-17 0:00:53 
 
 [../REVIEW.md](../REVIEW.md)
 
@@ -169,7 +169,7 @@ const str3 = concatPigs(str2);
 
 const str4 = concatParam(str2, str3);
 
-console.assert(str4 === _, 'assert str4');
+console.assert(str4 === ' pigs  rock!  pigs  rock! pigs', 'assert str4');
 
 ```
 
@@ -196,7 +196,7 @@ const closeIt = (str) => {
 
 let closedFunctions = closeIt("-");
 const concatPigs = closedFunctions[0], concatParam = closedFunctions[1];
-closedFunctions = _;
+closedFunctions = closedFunctions;
 
 const str1 = concatPigs();
 
@@ -206,7 +206,7 @@ const str3 = concatPigs();
 
 const str4 = concatParam(str3);
 
-console.assert(str4 === _, 'assert str4');
+console.assert(str4 === '-- pigs', 'assert str4');
 
 ```
 
@@ -233,7 +233,7 @@ const closeIt = (str) => {
 
 let closedFunctions = closeIt("-");
 const concatPigs = closedFunctions[0], concatParam = closedFunctions[1];
-closedFunctions = _;
+closedFunctions = closedFunctions;
 
 const str1 = concatPigs();
 
@@ -243,7 +243,7 @@ const str3 = concatPigs();
 
 const str4 = concatParam(str3);
 
-console.assert(str4 === _, 'assert str4');
+console.assert(str4 === '- pigs rock! pigs- pigs rock! pigs', 'assert str4');
 
 ```
 
